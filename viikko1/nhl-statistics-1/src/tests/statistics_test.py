@@ -1,6 +1,7 @@
 import unittest
 from statistics import Statistics
 from player import Player
+from enum import Enum
 
 class PlayerReaderStub:
     def get_players(self):
@@ -11,6 +12,10 @@ class PlayerReaderStub:
             Player("Yzerman", "DET", 42, 56),
             Player("Gretzky", "EDM", 35, 89)
         ]
+class SortBy(Enum):
+            POINTS = 1
+            GOALS = 2
+            ASSISTS = 3
 
 class TestStatistics(unittest.TestCase):
     def setUp(self):
@@ -37,9 +42,28 @@ class TestStatistics(unittest.TestCase):
         teamPlayers = self.statistics.team("EDM")
         self.assertEqual(listEdmMembers, teamPlayers)               
 
-    def test_team_top_returns_right_playerList(self):
+    def test_top_without_enum_returns_right_playerList(self):
  
         topPlayerS = self.statistics.top(2)
         listOfTwoFirstNames = [topPlayerS[0].name,topPlayerS[1].name]
         self.assertEqual(listOfTwoFirstNames,  ['Gretzky', 'Lemieux'])      
 
+    def test_top_points_returns_right_playerList(self):
+        topPlayerS = self.statistics.top(2,SortBy(SortBy.POINTS))
+        listOfTwoFirstNames = [topPlayerS[0].name,topPlayerS[1].name]
+        self.assertEqual(listOfTwoFirstNames,  ['Gretzky', 'Lemieux'])    
+
+    def test_top_goals_returns_right_playerList(self):
+        topPlayerS = self.statistics.top(2,SortBy.GOALS)
+        listOfTwoFirstNames = [topPlayerS[0].name,topPlayerS[1].name]
+        self.assertEqual(listOfTwoFirstNames,  ['Lemieux', 'Yzerman'])    
+
+    def test_top_assists_returns_right_playerList(self):
+        topPlayerS = self.statistics.top(2,SortBy.ASSISTS)
+        listOfTwoFirstNames = [topPlayerS[0].name,topPlayerS[1].name]
+        self.assertEqual(listOfTwoFirstNames,  ['Gretzky', 'Yzerman'])        
+
+    
+
+
+   
