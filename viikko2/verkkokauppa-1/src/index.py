@@ -1,15 +1,11 @@
 from kauppa import Kauppa
-from kirjanpito import Kirjanpito
-from varasto import Varasto
-from pankki import Pankki
-from viitegeneraattori import Viitegeneraattori 
-from kirjanpito import Kirjanpito
+from pankki import pankki
+from viitegeneraattori import viitegeneraattori 
+from kirjanpito import kirjanpito
+from varasto import varasto
 
 def main():
-    viitegeneraattori = Viitegeneraattori()
-    kirjanpito = Kirjanpito()
-    varasto = Varasto(kirjanpito)
-    pankki = Pankki(kirjanpito)
+    
     kauppa = Kauppa(
         varasto,
         pankki,
