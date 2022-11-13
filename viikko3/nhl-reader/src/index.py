@@ -22,6 +22,7 @@ def main():
                 player_dict['assists'],
             )
             players.append(player)
+    players.sort(key=lambda x: x.goals+x.assists, reverse=True)
     for player in players:
         print(player) 
 
