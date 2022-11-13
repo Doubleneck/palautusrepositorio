@@ -7,7 +7,6 @@ def main():
     response = requests.get(url).json()
     headers = requests.get(url).headers['Date']
     nationality = 'FIN'
-    print("JSON-muotoinen vastaus:")
     print("Players from " + nationality + " " +headers + "\n")
 
     players = []
