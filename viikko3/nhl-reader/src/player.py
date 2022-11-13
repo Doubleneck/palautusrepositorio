@@ -1,11 +1,12 @@
 class Player:
-    def __init__(self, name, team, games, goals, penalties, assists):
+    def __init__(self, name, team, games, goals, penalties, assists,nationality):
         self.name = name
         self.team = team
         self.games = games
         self.goals = goals
         self.penalties = penalties
         self.assists = assists
+        self.nationality = nationality
 
     
     def __str__(self):
