@@ -11,7 +11,7 @@ class Ostoskori:
         if len(self.ostokset) > 0:
             sum = 0
             for ostos in self.ostokset:
-                sum += ostos._lukumaara
+                sum += ostos.lukumaara()
             return sum
         return 0
         # kertoo korissa olevien tavaroiden lukumäärän
@@ -29,8 +29,7 @@ class Ostoskori:
 
     def lisaa_tuote(self, lisattava: Tuote):
         lisattavaOstos = Ostos(lisattava)
-        if lisattava not in self.ostokset:
-            self.ostokset.append(lisattavaOstos)
+        self.ostokset.append(lisattavaOstos)
 
     def poista_tuote(self, poistettava: Tuote):
         # poistaa tuotteen
