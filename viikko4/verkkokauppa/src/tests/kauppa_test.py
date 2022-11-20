@@ -83,3 +83,24 @@ class TestKauppa(unittest.TestCase):
         kauppa.tilimaksu("pekka", "12345")
         self.pankki_mock.tilisiirto.assert_called_with(
             "pekka", 42, "12345", "33333-44455", 5)
+
+    def test_aloita_asiointi_nollaa_kaupan(self):
+        kauppa = Kauppa(self.varasto_mock, self.pankki_mock,
+                        self.viitegeneraattori_mock)
+        kauppa.aloita_asiointi()
+        kauppa.lisaa_koriin(1)
+        kauppa.tilimaksu("arto", "11111")
+        # tarkistetaan että tässä vaiheessa viitegeneraattorin metodia uusi on kutsuttu kerran
+        self.assertEqual(self.viitegeneraattori_mock.uusi.call_count, 1)
+        kauppa.aloita_asiointi()
+        kauppa.lisaa_koriin(2)
+        kauppa.tilimaksu("pekka", "12345")
+        self.assertEqual(self.viitegeneraattori_mock.uusi.call_count, 2)
+        self.pankki_mock.tilisiirto.assert_called_with(
+            "pekka", 42, "12345", "33333-44455", 3)
+
+    def test_kaikkien_tuotetyyppien_lisaaminen_toimii_oikein(self):
+        kauppa = Kauppa(self.varasto_mock, self.pankki_mock,
+                        self.viitegeneraattori_mock)
+        kauppa.aloita_asiointi()
+        self.assertEqual(self.varasto_mock.hae_tuote(3), Tuote(3, "kahvi", 9))
