@@ -63,3 +63,10 @@ class TestOstoskori(unittest.TestCase):
         self.assertEqual(ostos.tuote, maito)
         self.assertEqual(ostos._lukumaara, 1)
         # testaa täällä, että palautetun listan ensimmäinen ostos on halutunkaltainen.
+
+    def test_kahden_eri_tuotteen_lisaamisen_jalkeen_ostoskori_sisaltaa_kaksi_ostosta(self):
+        maito = Tuote("Maito", 3)
+        leipa = Tuote("Leipa", 5)
+        self.kori.lisaa_tuote(maito)
+        self.kori.lisaa_tuote(leipa)
+        self.assertEqual(self.kori.tavaroita_korissa(), 2)
