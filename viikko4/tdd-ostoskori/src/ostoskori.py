@@ -45,12 +45,11 @@ class Ostoskori:
 
         ostoksetFiltered = list(
             filter(lambda x: (x.lukumaara() != 0), self.ostokset))
-
         self.ostokset = ostoksetFiltered
         # poistaa tuotteen
 
     def tyhjenna(self):
-        pass
+        self.ostokset = []
         # tyhjentää ostoskorin
 
     def ostokset(self):
