@@ -1,5 +1,5 @@
 # Retrospektiivisiä menetelmiä 
-aa
+
 ## Start, Stop, Continue, More of, Less of Wheel
 
 1. Piirretään tauluun ympyrä, joka jaetaan viiteen sektoriin:
