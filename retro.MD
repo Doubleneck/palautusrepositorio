@@ -15,7 +15,7 @@
     - Minkä kanssa halutaan jatkaa?
     - Mitä pitäisi tehdä enemmän?
     - Mitä pitäisi tehdä vähemmän?
-    - 
+    
 3. Rohkaistaan kommentoimaan jokaista kategoriaa, selvitetään mihin kategoriaan komentti kuuluu
 	- kirjataan kommentti tauluun
 	- odotetaan kommentteja
