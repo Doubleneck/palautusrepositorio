@@ -1,1 +1,1 @@
-https://github.com/janikakalliokoski/parhaat123_ohtu/pull/13
+- [linkki pull requestiin vko6 teht 6](https://github.com/janikakalliokoski/parhaat123_ohtu/pull/13)
